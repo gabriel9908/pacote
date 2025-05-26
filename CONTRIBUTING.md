@@ -449,6 +449,8 @@ mvn exec:java -Dexec.mainClass="com.library.Main"
 - **Issues**: Para bugs e feature requests
 - **Discussions**: Para perguntas e ideias
 - **Email**: gabriel.santos@estudante.faculdade.edu.br
+- **GitHub**: [@gabriel9908](https://github.com/gabriel9908)
+- **Repositório**: [pacote](https://github.com/gabriel9908/pacote)
 
 ### Código de Conduta
 - Seja respeitoso e profissional

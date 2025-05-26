@@ -1,4 +1,3 @@
-
 # 📋 Documentação Técnica - Sistema de Biblioteca
 
 ## 🏗️ Arquitetura do Sistema
@@ -305,3 +304,5 @@ docker run -p 5000:5000 biblioteca
 3. Fluxo de empréstimo e devolução
 4. Cálculo de multas
 5. Sistema de reservas
+
+**GitHub:** [Sistema de Biblioteca](https://github.com/gabriel9908/pacote)

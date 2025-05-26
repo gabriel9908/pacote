@@ -56,10 +56,10 @@ docker-compose --version
 #### Passo 1: Clone o Repositório
 ```bash
 # Clone o projeto
-git clone https://github.com/gabrielsantos/sistema-biblioteca.git
+git clone https://github.com/gabriel9908/pacote.git
 
 # Entre no diretório
-cd sistema-biblioteca
+cd pacote
 
 # Verificar arquivos
 ls -la

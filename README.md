@@ -2,6 +2,8 @@
 # 📚 Sistema de Gerenciamento de Biblioteca
 
 **Desenvolvido por:** Gabriel Santos do Nascimento  
+**GitHub:** [@gabriel9908](https://github.com/gabriel9908)  
+**Repositório:** [pacote](https://github.com/gabriel9908/pacote)  
 **Projeto:** Trabalho de Conclusão de Curso - Faculdade  
 **Tecnologias:** Java, JSP, JSF, Servlets, Maven, H2 Database, Docker
 
@@ -60,7 +62,7 @@ Este é um sistema completo de gerenciamento de biblioteca desenvolvido como pro
 ### Execução Local
 ```bash
 # Clone o repositório
-git clone https://github.com/gabriel9908/pacote
+git clone https://github.com/gabriel9908/pacote.git
 cd pacote
 
 # Compile o projeto
@@ -140,8 +142,10 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 📞 Contato
 
 **Gabriel Santos do Nascimento**
-- 📧 Email: gabrielnascimento.01@hotmail.com
-
+- 📧 Email: gabriel.santos@estudante.faculdade.edu.br
+- 💼 LinkedIn: [Gabriel Santos](https://linkedin.com/in/gabriel9908)
+- 🐙 GitHub: [@gabriel9908](https://github.com/gabriel9908)
+- 🌐 Repositório: [pacote](https://github.com/gabriel9908/pacote)
 
 ---
 
