@@ -60,8 +60,8 @@ Este é um sistema completo de gerenciamento de biblioteca desenvolvido como pro
 ### Execução Local
 ```bash
 # Clone o repositório
-git clone https://github.com/gabrielsantos/sistema-biblioteca.git
-cd sistema-biblioteca
+git clone https://github.com/gabriel9908/pacote
+cd pacote
 
 # Compile o projeto
 mvn clean compile
