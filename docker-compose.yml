@@ -1,0 +1,248 @@
+
+# Docker Compose - Sistema de Biblioteca
+# Desenvolvido por Gabriel Santos do Nascimento
+# Projeto de Faculdade - 2024
+
+version: '3.8'
+
+services:
+  # Aplicação Principal
+  biblioteca-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: biblioteca-sistema
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - JAVA_OPTS=-Xmx512m -Xms256m
+      - TZ=America/Sao_Paulo
+      - APP_ENV=production
+      - DB_TYPE=h2
+    volumes:
+      - biblioteca-logs:/app/logs
+      - biblioteca-data:/app/data
+    networks:
+      - biblioteca-network
+    labels:
+      - "com.biblioteca.service=app"
+      - "com.biblioteca.version=1.0.0"
+      - "com.biblioteca.author=Gabriel Santos"
+    depends_on:
+      - biblioteca-db
+    healthcheck:
+      test: ["CMD", "/app/health-check.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Banco de Dados MySQL (Opcional - para produção)
+  biblioteca-db:
+    image: mysql:8.0
+    container_name: biblioteca-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: biblioteca_root_2024
+      MYSQL_DATABASE: biblioteca_db
+      MYSQL_USER: biblioteca_user
+      MYSQL_PASSWORD: biblioteca_pass_2024
+      TZ: America/Sao_Paulo
+    ports:
+      - "3306:3306"
+    volumes:
+      - biblioteca-mysql-data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+      - ./docker/mysql/conf:/etc/mysql/conf.d
+    networks:
+      - biblioteca-network
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --innodb-buffer-pool-size=256M
+      --max-connections=100
+    labels:
+      - "com.biblioteca.service=database"
+      - "com.biblioteca.version=8.0"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Adminer (Interface Web para Banco de Dados)
+  biblioteca-adminer:
+    image: adminer:4.8.1
+    container_name: biblioteca-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: biblioteca-db
+      ADMINER_DESIGN: galkaev
+    networks:
+      - biblioteca-network
+    depends_on:
+      - biblioteca-db
+    labels:
+      - "com.biblioteca.service=adminer"
+      - "com.biblioteca.description=Database Admin Interface"
+
+  # Nginx Reverse Proxy (Para produção)
+  biblioteca-nginx:
+    image: nginx:1.21-alpine
+    container_name: biblioteca-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+      - biblioteca-logs:/var/log/nginx
+    networks:
+      - biblioteca-network
+    depends_on:
+      - biblioteca-app
+    labels:
+      - "com.biblioteca.service=proxy"
+      - "com.biblioteca.description=Reverse Proxy"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis (Cache - Opcional)
+  biblioteca-redis:
+    image: redis:7.0-alpine
+    container_name: biblioteca-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - biblioteca-redis-data:/data
+      - ./docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - biblioteca-network
+    command: redis-server /usr/local/etc/redis/redis.conf
+    labels:
+      - "com.biblioteca.service=cache"
+      - "com.biblioteca.description=Redis Cache"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Prometheus (Monitoramento - Opcional)
+  biblioteca-prometheus:
+    image: prom/prometheus:v2.40.0
+    container_name: biblioteca-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - biblioteca-prometheus-data:/prometheus
+    networks:
+      - biblioteca-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=15d'
+      - '--web.enable-lifecycle'
+    labels:
+      - "com.biblioteca.service=monitoring"
+
+  # Grafana (Dashboard - Opcional)
+  biblioteca-grafana:
+    image: grafana/grafana:9.2.0
+    container_name: biblioteca-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: biblioteca_admin_2024
+      GF_USERS_ALLOW_SIGN_UP: false
+      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - biblioteca-grafana-data:/var/lib/grafana
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - biblioteca-network
+    depends_on:
+      - biblioteca-prometheus
+    labels:
+      - "com.biblioteca.service=dashboard"
+
+# Volumes Persistentes
+volumes:
+  biblioteca-logs:
+    driver: local
+    labels:
+      - "com.biblioteca.volume=logs"
+  
+  biblioteca-data:
+    driver: local
+    labels:
+      - "com.biblioteca.volume=data"
+  
+  biblioteca-mysql-data:
+    driver: local
+    labels:
+      - "com.biblioteca.volume=mysql"
+  
+  biblioteca-redis-data:
+    driver: local
+    labels:
+      - "com.biblioteca.volume=redis"
+  
+  biblioteca-prometheus-data:
+    driver: local
+    labels:
+      - "com.biblioteca.volume=prometheus"
+  
+  biblioteca-grafana-data:
+    driver: local
+    labels:
+      - "com.biblioteca.volume=grafana"
+
+# Rede Interna
+networks:
+  biblioteca-network:
+    driver: bridge
+    labels:
+      - "com.biblioteca.network=internal"
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Configurações Globais
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+# Aplicar logging a todos os serviços
+services:
+  biblioteca-app:
+    logging: *default-logging
+  biblioteca-db:
+    logging: *default-logging
+  biblioteca-adminer:
+    logging: *default-logging
+  biblioteca-nginx:
+    logging: *default-logging
+  biblioteca-redis:
+    logging: *default-logging
+  biblioteca-prometheus:
+    logging: *default-logging
+  biblioteca-grafana:
+    logging: *default-logging

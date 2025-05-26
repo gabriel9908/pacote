@@ -1,0 +1,143 @@
+
+MIT License
+
+Copyright (c) 2024 Gabriel Santos do Nascimento
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+LICENÇA MIT - PORTUGUÊS BRASILEIRO
+
+Direitos Autorais (c) 2024 Gabriel Santos do Nascimento
+
+A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia
+deste software e arquivos de documentação associados (o "Software"), para negociar
+o Software sem restrições, incluindo, sem limitação, os direitos de usar, copiar,
+modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do
+Software, e permitir que as pessoas a quem o Software é fornecido o façam,
+sujeitas às seguintes condições:
+
+O aviso de direitos autorais acima e este aviso de permissão devem ser incluídos
+em todas as cópias ou partes substanciais do Software.
+
+O SOFTWARE É FORNECIDO "COMO ESTÁ", SEM GARANTIA DE QUALQUER TIPO, EXPRESSA OU
+IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO ÀS GARANTIAS DE COMERCIALIZAÇÃO,
+ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO E NÃO VIOLAÇÃO. EM NENHUM CASO OS AUTORES
+OU DETENTORES DE DIREITOS AUTORAIS SERÃO RESPONSÁVEIS POR QUALQUER REIVINDICAÇÃO,
+DANOS OU OUTRA RESPONSABILIDADE, SEJA EM AÇÃO DE CONTRATO, DELITO OU DE OUTRA
+FORMA, DECORRENTE DE, FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTRAS
+NEGOCIAÇÕES NO SOFTWARE.
+
+---
+
+SOBRE ESTA LICENÇA
+
+A Licença MIT é uma licença de software livre permissiva que permite reutilização
+dentro de software proprietário, desde que todos os arquivos licenciados
+mantenham o aviso de copyright.
+
+CARACTERÍSTICAS PRINCIPAIS:
+✅ Uso comercial permitido
+✅ Modificação permitida
+✅ Distribuição permitida
+✅ Uso privado permitido
+✅ Sublicenciamento permitido
+
+CONDIÇÕES:
+📋 Incluir aviso de copyright
+📋 Incluir aviso de licença
+
+LIMITAÇÕES:
+❌ Responsabilidade limitada
+❌ Sem garantia
+
+---
+
+PROJETO ACADÊMICO
+
+Este software foi desenvolvido como parte do Trabalho de Conclusão de Curso
+em Engenharia de Software/Ciência da Computação.
+
+Instituição: [Nome da Faculdade]
+Curso: Engenharia de Software
+Aluno: Gabriel Santos do Nascimento
+Ano: 2024
+
+Para fins acadêmicos, este projeto pode ser:
+- Usado como referência em outros trabalhos acadêmicos
+- Modificado para projetos educacionais
+- Distribuído entre estudantes para aprendizado
+- Utilizado como base para extensões e melhorias
+
+CITAÇÃO ACADÊMICA:
+Se você usar este projeto como referência em trabalhos acadêmicos,
+favor citar como:
+
+NASCIMENTO, Gabriel Santos do. Sistema de Gerenciamento de Biblioteca
+usando Java EE, JSP, JSF e Servlets. 2024. Trabalho de Conclusão de
+Curso (Engenharia de Software) - [Nome da Faculdade], [Cidade], 2024.
+
+CONTATO:
+📧 gabriel.santos@estudante.faculdade.edu.br
+🐙 https://github.com/gabrielsantos/sistema-biblioteca
+💼 https://linkedin.com/in/gabrielsantos
+
+---
+
+TECNOLOGIAS UTILIZADAS
+
+Este projeto utiliza as seguintes tecnologias open source:
+
+- Java (Oracle Binary Code License)
+- Apache Maven (Apache License 2.0)
+- Apache Tomcat (Apache License 2.0)
+- H2 Database (Mozilla Public License 2.0 or Eclipse Public License 1.0)
+- JSP/Servlet API (CDDL + GPLv2 with classpath exception)
+- JSF (CDDL + GPLv2 with classpath exception)
+- JSTL (CDDL + GPLv2 with classpath exception)
+- JUnit (Eclipse Public License 1.0)
+
+Todas essas tecnologias possuem licenças compatíveis com a Licença MIT.
+
+---
+
+ISENÇÃO DE RESPONSABILIDADE
+
+Este software foi desenvolvido para fins educacionais como parte de um
+projeto acadêmico. Embora tenha sido desenvolvido seguindo as melhores
+práticas da indústria, não é recomendado para uso em produção sem
+revisão adequada de segurança e testes extensivos.
+
+O desenvolvedor não se responsabiliza por:
+- Perda de dados
+- Problemas de segurança
+- Falhas de sistema
+- Danos diretos ou indiretos decorrentes do uso
+
+Para uso em produção, recomenda-se:
+1. Auditoria de segurança completa
+2. Testes extensivos em ambiente de produção
+3. Implementação de backup e recuperação
+4. Monitoramento contínuo
+5. Atualizações regulares de segurança
+
+---
+
+ÚLTIMA ATUALIZAÇÃO: 25 de Janeiro de 2024
