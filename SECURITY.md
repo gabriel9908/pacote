@@ -16,7 +16,7 @@ Atualmente, as seguintes versões do Sistema de Biblioteca recebem atualizaçõe
 **NÃO** reporte vulnerabilidades de segurança através de issues públicas do GitHub.
 
 **Por favor, reporte vulnerabilidades de segurança via:**
-- 📧 **Email:** gabriel.santos.security@estudante.faculdade.edu.br
+- 📧 **Email:** gabrielnascimento.01@hotmail.com
 - 🔒 **Assunto:** `[SECURITY] Sistema Biblioteca - [Breve Descrição]`
 
 ### Informações a Incluir
@@ -285,7 +285,7 @@ COPY --chown=library:library . /app
 
 ### Equipe de Segurança
 - **Desenvolvedor Principal**: Gabriel Santos do Nascimento
-- **Email**: gabriel.santos.security@estudante.faculdade.edu.br
+- **Email**: gabrielnascimento.01@hotmail.com
 - **Response Time**: 48 horas úteis
 
 ### Divulgação Responsável
