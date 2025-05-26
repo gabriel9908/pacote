@@ -140,9 +140,8 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 📞 Contato
 
 **Gabriel Santos do Nascimento**
-- 📧 Email: gabriel.santos@estudante.faculdade.edu.br
-- 💼 LinkedIn: [Gabriel Santos](https://linkedin.com/in/gabrielsantos)
-- 🐙 GitHub: [@gabrielsantos](https://github.com/gabrielsantos)
+- 📧 Email: gabrielnascimento.01@hotmail.com
+
 
 ---
 
